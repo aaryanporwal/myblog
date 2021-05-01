@@ -75,7 +75,7 @@ body {
   background-color: var(--base00);
   color: var(--base07);
   line-height: 1.5;
-  font-size: 70%;
+  font-size: 75%;
   font-family: "Source Code Pro", monospace;
 }
 
@@ -226,6 +226,18 @@ header a.path {
 
 header span.caret {
   color: var(--base07);
+}
+
+#github-logo {
+  transform: translateY(5px);
+}
+
+header a {
+  text-decoration: var(--base0e) underline wavy;
+}
+
+header a:hover {
+  text-decoration-style: double;
 }
 
 /* Footer Layout */
