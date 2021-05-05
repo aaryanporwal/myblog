@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/</loc>
+    <loc>/</loc>
+    <lastmod>2021-05-05T19:12:41+05:30</lastmod>
+  </url><url>
+    <loc>/posts/scaling-your-node.js-app-like-a-boss/</loc>
+    <lastmod>2021-05-05T19:12:41+05:30</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2021-05-05T19:12:41+05:30</lastmod>
+  </url><url>
+    <loc>/posts/my-first-post/</loc>
     <lastmod>2021-04-27T17:10:16+05:30</lastmod>
   </url><url>
-    <loc>http://example.org/posts/my-first-post/</loc>
-    <lastmod>2021-04-27T17:10:16+05:30</lastmod>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>http://example.org/posts/</loc>
-    <lastmod>2021-04-27T17:10:16+05:30</lastmod>
-  </url><url>
-    <loc>http://example.org/categories/</loc>
-  </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>

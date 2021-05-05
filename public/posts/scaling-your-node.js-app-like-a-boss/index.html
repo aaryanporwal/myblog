@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="generator" content="Hugo 0.82.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Aaryan&#39;s 📖">
+<title>Node.js To The Moon 🚀</title>
+</head>
+<body>
+
+<header>
+  <div class="container clearfix">
+    
+    [ <a class="path" href="/">Home</a> ]
+    [ <a class="path" target="_blank" href="/">Projects</a> ]
+    [ <a class="path" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>  ]
+    <span class="caret">#_</span>
+    <div class="right">
+      
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2021-05-05">May 05, 2021</time></span>
+
+
+
+  </div>
+  <h1 class="headline" itemprop="headline">Node.js To The Moon 🚀</h1>
+  <section class="body" itemprop="articleBody">
+    <h1 id="scaling-your-nodejs-app-like-a-boss">Scaling your Node.js app like a boss</h1>
+<p>Let&rsquo;s cut to the chase, you run your fancy Node.js application on your machine hoping that it&rsquo;ll be able to take full advantage of your CPU when you need it. But that&rsquo;s not what happens, let&rsquo;s see why and how you can make full use of the CPU power you paid for.</p>
+<p>So a little history: JavaScript was created out of the rapidly growing demand for dynamic content on the web, it was designed to do simple things like creating a colourful mouse trail or to validate forms. It was only in 2009 that Ryan Dahl, creator of Node.js, made it possible for developers to use JavaScript to write back-end code.</p>
+<p>Most backend languages support multithreading and have all kinds of algorithms to sync values between the threads and other thread related features. To add support for such stuff to JavaScript, Dahl needed a workaround&hellip;</p>
+<h2 id="how-nodejs-threading-works">How Node.js threading works</h2>
+<p>When a Node.js process is launched, it runs:</p>
+<ul>
+<li>One process</li>
+<li>One thread</li>
+<li>One event loop</li>
+<li>One JS Engine Instance</li>
+<li>One Node.js Instance</li>
+</ul>
+<h4 id="one-process">One process:</h4>
+<p>A process is a global object that can be accessed anywhere and has information about what’s being executed at a time.</p>
+<h4 id="one-thread">One thread:</h4>
+<p>Being single-threaded means that only one set of instructions is executed at a time in a given process.</p>
+<h4 id="one-event-loop">One event loop:</h4>
+<p>This is what allows Node to be asynchronous and have non-blocking I/O, — despite the fact that JavaScript is single-threaded — by offloading operations to the system kernel whenever possible through callbacks, promises and async/await.</p>
+<h4 id="one-js-engine-instance">One JS Engine Instance:</h4>
+<p>This is a computer program that executes JavaScript code.</p>
+<h4 id="one-nodejs-instance">One Node.js Instance:</h4>
+<p>The computer program that executes Node.js code.</p>
+<blockquote>
+<p>In short, Node runs on a single thread, and there is just one process happening at a time in the event loop. Which means the code doesn&rsquo;t run in parallel. This is great because it solves a lot of concurrency issues. Right? 🤔</p>
+</blockquote>
+<p><em>Lol</em> you wish! There&rsquo;s a big fat downside with this process: if you have a CPU-intensive code, like complex calculations taking place in-memory, this can block all the other code from being executed.</p>
+<p>So if you are making a request to a server that has CPU-intensive code, that code can block the event loop and prevent other requests from being handled.</p>
+<p>Also it doesn&rsquo;t even have to be just a CPU intensive code, single thread can be a bottleneck if you have a lot of incoming concurrent requests too.</p>
+
+  </section>
+</article>
+
+</main>
+
+</div>
+
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 2021 Aaryan&#39;s 📖 - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
+
+  </div>
+  <span class="gopher" title="Wheeeee!"></span>
+</footer>
+
+</body>
+</html>
+
