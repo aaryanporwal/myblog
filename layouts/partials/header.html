@@ -21,9 +21,10 @@
 <header>
   <div class="container clearfix">
     <!-- <a class="path" href="{{ .Site.BaseURL }}">[{{ .Site.Title }}]</a> -->
-    [ <a class="path" href="{{ .Site.BaseURL }}">Home</a> ]
-    [ <a class="path" target="_blank" href="{{ .Site.BaseURL }}">Projects</a> ]
-    [ <a class="path" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>  ]
+    [<a class="path" href="{{ .Site.BaseURL }}">Home</a>]
+    [<a class="path" target="_blank" href="{{ .Site.BaseURL }}">Projects</a>]
+    [<a class="path" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>]
+    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>]
     <span class="caret">#_</span>
     <div class="right">
       {{ range $i, $page := (where .Site.Pages "Section" "pages") }}
