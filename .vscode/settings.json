@@ -1,0 +1,17 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "freedb.tech",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "umam-free",
+      "database": "umami",
+      "username": "umami",
+      "password": "123"
+    }
+  ]
+}
