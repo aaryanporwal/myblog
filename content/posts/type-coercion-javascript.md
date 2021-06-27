@@ -26,6 +26,6 @@ So what's happening in our expression
 
 `('b' + 'a' + + 'a' + 'a').toLowerCase()` is:
 
-The first two characters are simply concatenated, then `+'a'` coerces a character into a Number, which results in a [NaN](https://tc39.es/ecma262/multipage/global-object.html#sec-value-properties-of-the-global-object-nan) because `NaN` is of data type Number as well, after that`NaN` gets coerced into a string because it's being added to `'a'`.
+The first two characters are simply concatenated, then `+'a'` coerces a character into a Number, which results in a [NaN](https://tc39.es/ecma262/multipage/global-object.html#sec-value-properties-of-the-global-object-nan) because `NaN` is of data type Number as well, `NaN` gets coerced into a string because it's being added to `'a'`.
 
 Thank you for reading the post!
