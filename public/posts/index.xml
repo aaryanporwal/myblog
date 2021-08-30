@@ -6,15 +6,15 @@
     <description>Recent content in Posts on Aaryan&#39;s 📖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 May 2021 19:12:41 +0530</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Jun 2021 04:57:26 +0530</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Node.js To The Moon 🚀</title>
-      <link>/posts/scaling-your-node.js-app-like-a-boss/</link>
-      <pubDate>Wed, 05 May 2021 19:12:41 +0530</pubDate>
+      <title>Type Coercion In JavaScript</title>
+      <link>/posts/type-coercion-javascript/</link>
+      <pubDate>Fri, 25 Jun 2021 04:57:26 +0530</pubDate>
       
-      <guid>/posts/scaling-your-node.js-app-like-a-boss/</guid>
-      <description>Scaling your Node.js app like a boss Let&amp;rsquo;s cut to the chase, you run your fancy Node.js application on your machine hoping that it&amp;rsquo;ll be able to take full advantage of your CPU when you need it. But that&amp;rsquo;s not what happens, let&amp;rsquo;s see why and how you can make full use of the CPU power you paid for.
-So a little history: JavaScript was created out of the rapidly growing demand for dynamic content on the web, it was designed to do simple things like creating a colourful mouse trail or to validate forms.</description>
+      <guid>/posts/type-coercion-javascript/</guid>
+      <description>This small blog was sparked by a post that I saw: There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&amp;rsquo;m gonna try to explain what type coercion is and what&amp;rsquo;s happening in that post 😉.
+What is type coercion? There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol.</description>
     </item>
     
     <item>

@@ -2,3 +2,10 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Aaryan's 📖"
 theme = "base16"
+description = "Aaryan Porwal's blog where he occassionally writes about tech and his journey in Open Source Software."
+
+[author]
+  name = "Aaryan Porwal"
+
+[params]
+description = "Aaryan Porwal's blog where he occassionally writes about tech and his journey in Open Source Software."

@@ -1,6 +1,4 @@
 /* Base16 Eighties Colorscheme by Chris Kempson (http://chriskempson.com) */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 :root {
   --base00: #2d2d2d;
@@ -111,10 +109,6 @@ body {
 
 div.right {
   float: right;
-}
-
-div.clearfix {
-  overflow: auto;
 }
 
 @media (max-width: 52em) {

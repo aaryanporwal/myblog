@@ -1,6 +1,5 @@
 /* Base16 Eighties Colorscheme by Chris Kempson (http://chriskempson.com) */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 :root {
   --base00: #2d2d2d;
   --base01: #393939;
@@ -75,13 +74,13 @@ body {
   margin: 0;
   background-color: var(--base00);
   color: var(--base07);
-  line-height: 1.5;
-  font-size: 95%;
-  font-family: "Merriweather", serif;
+  line-height: 1.2;
+  font-size: 75%;
+  font-family: "JetBrains Mono", monospace;
 }
 
 .container {
-  max-width: 52em;
+  max-width: 60em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -112,13 +111,10 @@ div.right {
   float: right;
 }
 
-div.clearfix {
-  overflow: auto;
-}
-
 @media (max-width: 52em) {
   .container {
-    width: 100%;
+    width: 90%;
+    padding-bottom: 15px;
   }
 }
 
@@ -154,9 +150,10 @@ header {
 
 @media (max-width: 52em) {
   header {
+    font-size: small;
     margin-top: 0;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 0.6rem;
+    padding-right: 1rem;
   }
 }
 
@@ -166,13 +163,6 @@ footer {
   text-align: center;
   font-size: 0.9em;
   color: var(--base03);
-}
-
-@media (max-width: 52em) {
-  footer {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
 }
 
 /* Typography */
@@ -288,12 +278,12 @@ footer a {
 
 @media (max-width: 52em) {
   .homepage h1.site-title {
-    font-size: 3em;
+    font-size: 2.2em;
   }
 }
 
 .homepage h1.headline {
-  font-size: 3em;
+  font-size: 1.6em;
   color: var(--base0a);
 }
 
@@ -333,8 +323,8 @@ footer a {
 }
 
 .article-list article {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   margin-bottom: 4rem;
 }
 
@@ -473,8 +463,8 @@ article.single pre {
 }
 
 article.single p code {
-  padding: 0.2em 0.5em;
-  border-radius: 3px;
+  /* padding: 0.2em 0.5em; */
+  /* border-radius: 3px; */
   background: var(--base03);
   color: var(--base07);
 }
