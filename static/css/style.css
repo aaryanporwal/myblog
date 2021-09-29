@@ -156,6 +156,11 @@ header {
     padding-right: 1rem;
   }
 }
+@media (max-width: 363px) {
+  header span.caret {
+    display: none;
+  }
+}
 
 footer {
   margin-top: 2rem;
@@ -474,9 +479,6 @@ article.single figure,
 article.single div.highlight {
   box-sizing: border-box;
   max-width: 52rem;
-  width: 52rem;
-  margin-left: -8rem;
-  margin-right: -8rem;
   margin-bottom: 1rem;
   padding: 1em;
   background-color: var(--base01);
