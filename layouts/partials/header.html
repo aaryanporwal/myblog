@@ -27,10 +27,11 @@
 <header>
   <div class="container clearfix">
     <!-- <a class="path" href="{{ .Site.BaseURL }}">[{{ .Site.Title }}]</a> -->
-    [<a class="path" href="{{ .Site.BaseURL }}">Home</a>]
-    [<a class="path" target="_blank" href="https://scrapbook.hackclub.com/aaryan">Scrapbook</a>]
-    [<a class="path" rel="noopener" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>]
-    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>]
+    <!-- {{ .Site.BaseURL }} -->
+    [<a class="path home" href="/">Home</a>] &nbsp;
+    [<a class="path" target="_blank" href="https://scrapbook.hackclub.com/aaryan">Scrapbook</a>] &nbsp;
+    [<a class="path" rel="noopener" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>] &nbsp;
+    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>] &nbsp;
     <span class="caret">#_</span>
     <div class="right">
       {{ range $i, $page := (where .Site.Pages "Section" "pages") }}

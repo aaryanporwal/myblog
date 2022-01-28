@@ -9,3 +9,9 @@ description = "Aaryan Porwal's blog where he occassionally writes about tech and
 
 [params]
 description = "Aaryan Porwal's blog where he occassionally writes about tech and his journey in Open Source Software."
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+
