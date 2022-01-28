@@ -1,7 +1,7 @@
 ---
 title: "No Collision Guarantee"
 date: 2022-01-28T17:49:17+05:30
-draft: true
+draft: false
 tags:
   - "Problem-Solving"
   - "System-Design"
@@ -9,34 +9,55 @@ tags:
 
 # Designing No Collision Guarantee System.
 
-For my url shortening system I wanted no collisions in the shortened url.
+A data collision is defined as two or more copies of the application changing the same data item in different copies of the database at the same time.
 
-For example:
+So for the past few days, I've been trying to build a _distributed highly scalable, no collision guaranteed URL shortening service_.
 
-if you pass in a url called `https://longurl.com`, the backend will send you a short url that should be unique, the structure of the url would look something like `https://shorturl.com/[slug]`
+## The Architecture
 
-The slug is our main component, it should always be unique. The blog is all about ensuring the uniqueness.
+So if you pass in a long url called `https://longurl.com`, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: `https://shorturl.com/[slug]`.
+
+The slug is our main component, it should always be unique.
 
 Some things to note:
 
-- The length of the slug depends on how many entries will there be?
-- So for 5 digit alphanumeric slug (also called Base-62):
-  26 + 26 + 10 => 62
-  62^5 non-repeating values are possible.
+- The length of the slug depends on how many entries will there be.
+- So for 5 digit alphanumeric (also called Base-62) slug:
+
+  Possible combinations: 26 (small alphabets) + 26 (capital alphabets) + 10 (numbers) => 62.
+
+  So, for 5 digit base62 -> 62^5 ~about 900 million possibilities.
 
 What choices do we have to ensure uniqueness of the slug?
 
 - Random slug
 
-  -> The problem here is that for a request, there **can** be two same random characters (collisions).
+  -> This can be any random alphanumeric characters.
+
+  -> The problem here is that for a request, there can be two same random characters, which will eventually result in collisions.
 
 - Using MD5
 
   -> Collisions are possible here as well (although very rare, but we want no collision guarantee).
 
+- Time Stamp
+
+  -> You can store time stamp of every request and encode it with base62, but this still can result in collisions.
+
+  -> Just to give an example, if you generate 10 ids a second with a granularity of milliseconds, the probability of a collision is 1 in 23. On average, you'll have a collision every 23 seconds. But it's worse than that. The assumption in this math is that every possible birthday is equally likely. That's not true for birthdays, more people on born in the spring. It's also not going to be true for your timestamps. You are going to get much heavier on certain times of the day than others <sup>[1](https://softwareengineering.stackexchange.com/questions/305904/how-likely-are-collisions-of-timestamp-based-identifiers)</sup>.
+
+- UUIDs
+
+  -> UUID is part of the Distributed Computing Environment (DCE), standardized by the Open Software Foundation (OSF).
+
+  -> How UUID is made:
+  ![UUID architecture](https://i.stack.imgur.com/goiPw.png)
+
+  -> It's a good idea to use UUIDs for our slug, but I went with another approach (cuz why not :p)
+
 - Using a <u>**Counter**</u>
 
-  -> Counters are the only thing that can guarantee no collisions. This is true if we only use a single database, which is bad for scaling. For multiple distributed database, we again have a problem!
+  -> Counters are the only thing that can **guarantee** no collisions. This is true if we only use a single database, which is bad for scaling. For multiple distributed database, we again have a problem!
 
 # The problem with counter
 
@@ -62,7 +83,9 @@ The different approaches with multi database counter will look like:
 
 ## Problem with counter synchronization
 
-The problem with counter synchronization is that there can be two counters with same value, this can be solved by using Apache zookeeper.
+The problem with counter synchronization is that there can be two counters with same value.
+
+Here comes our [Apache zookeeper](https://zookeeper.apache.org/).
 
 What zookeeper would do is assign different counter ranges to different databases or servers.
 
@@ -76,3 +99,5 @@ For example:
 And zookeeper will also keep track of the counter usage so that it if a database exceeds the range, it is assigned a new range.
 
 In conclusion, for our distributed no collision guaranteed url shortening service, we can use counters to guarantee no collisions and use apache zookeeper to synchronize the counters across databases.
+
+P.S this article is still in development...
