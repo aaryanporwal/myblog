@@ -1,7 +1,7 @@
 ---
 title: "No Collision Guarantee"
 date: 2022-01-28T17:49:17+05:30
-draft: false
+draft: true
 tags:
   - "Problem-Solving"
   - "System-Design"
@@ -15,7 +15,7 @@ For example:
 
 if you pass in a url called `https://longurl.com`, the backend will send you a short url that should be unique, the structure of the url would look something like `https://shorturl.com/[slug]`
 
-The slug is our main component, it should always be unqiue. The blog is all about ensuring the uniqueness.
+The slug is our main component, it should always be unique. The blog is all about ensuring the uniqueness.
 
 Some things to note:
 
@@ -48,7 +48,7 @@ For example:
 - second: 10001
 - third: 10002 and so on.
 
-Now the problem is when we want to horizaontally scale and talk with multiple databases.
+Now the problem is when we want to horizontally scale and talk with multiple databases.
 
 The different approaches with multi database counter will look like:
 

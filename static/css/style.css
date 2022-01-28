@@ -126,6 +126,10 @@ body {
   padding-right: 5rem;
 }
 
+.clearfix {
+  text-align: center;
+}
+
 .tagline {
   text-align: center;
 }
@@ -168,8 +172,8 @@ div.right {
   .container {
     /* width: 100%; */
     padding-bottom: 15px;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    /* padding-left: 1rem !important; */
+    /* padding-right: 1rem !important; */
   }
 }
 
@@ -244,6 +248,12 @@ p {
   margin-bottom: 1rem;
   font-size: 1rem;
   padding-left: 1rem;
+}
+
+@media (max-width: 52em) {
+  p {
+    padding-left: 0px;
+  }
 }
 
 h1 {
