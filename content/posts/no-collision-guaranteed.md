@@ -9,8 +9,6 @@ tags:
 
 # Designing No Collision Guarantee System.
 
-A data collision is defined as two or more copies of the application changing the same data item in different copies of the database at the same time.
-
 So for the past few days, I've been trying to build a _distributed highly scalable, no collision guaranteed URL shortening service_.
 
 ## The Architecture
@@ -28,7 +26,7 @@ Some things to note:
 
   So, for 5 digit base62 -> 62^5 ~about 900 million possibilities.
 
-What choices do we have to ensure uniqueness of the slug?
+## What choices do we have to ensure uniqueness of the slug?
 
 - Random slug
 
