@@ -51,7 +51,7 @@ Some things to note:
   -> How UUID is made:
   ![UUID architecture](https://i.stack.imgur.com/goiPw.png)
 
-  -> It's a good idea to use UUIDs for our slug, but I went with another approach (cuz why not :p)
+  -> Also check out this amazing blog about collisions in UUIDs [here](https://www.scaleyourapp.com/uuid-guid-oversimplified-are-they-really-unique/).
 
 - Using a <u>**Counter**</u>
 
