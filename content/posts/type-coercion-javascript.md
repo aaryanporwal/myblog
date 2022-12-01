@@ -2,6 +2,10 @@
 title: "Type Coercion In JavaScript"
 date: 2021-06-25T04:57:26+05:30
 draft: false
+tags:
+  - "javascript"
+  - "nodejs"
+  - "weird-js"
 ---
 
 This small blog was sparked by a post that I saw: ![Weird JavaScript](https://i.imgur.com/5JbayVc.png)

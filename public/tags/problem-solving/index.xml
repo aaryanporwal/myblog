@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Problem-Solving on Aaryan&#39;s 📖</title>
+    <link>/tags/problem-solving/</link>
+    <description>Recent content in Problem-Solving on Aaryan&#39;s 📖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jan 2022 17:49:17 +0530</lastBuildDate><atom:link href="/tags/problem-solving/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>No Collision Guarantee</title>
+      <link>/posts/no-collision-guaranteed/</link>
+      <pubDate>Fri, 28 Jan 2022 17:49:17 +0530</pubDate>
+      
+      <guid>/posts/no-collision-guaranteed/</guid>
+      <description>Designing No Collision Guarantee System. So for the past few days, I&amp;rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
+The Architecture So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
+The slug is our main component, it should always be unique.</description>
+    </item>
+    
+  </channel>
+</rss>

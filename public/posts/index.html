@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="description" content="Aaryan Porwal&#39;s blog where he occassionally writes about tech and his journey in Open Source Software.">
-<meta name="generator" content="Hugo 0.82.1" />
+<meta name="generator" content="Hugo 0.92.1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/style.css" type="text/css">
 <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Aaryan&#39;s 📖">
@@ -21,10 +21,11 @@
 <header>
   <div class="container clearfix">
     
-    [<a class="path" href="/">Home</a>]
-    [<a class="path" target="_blank" href="/">Projects</a>]
-    [<a class="path" rel="noopener" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>]
-    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>]
+    
+    [<a class="path home" href="/">Home</a>] &nbsp;
+    [<a class="path" target="_blank" href="https://scrapbook.hackclub.com/aaryan">Scrapbook</a>] &nbsp;
+    [<a class="path" rel="noopener" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>] &nbsp;
+    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>] &nbsp;
     <span class="caret">#_</span>
     <div class="right">
       
@@ -37,6 +38,38 @@
 
 <main role="main" class="article-list">
   <h1 class="list-title">Posts</h1>
+  
+    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="/posts/no-collision-guaranteed/">No Collision Guarantee</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2022-01-28">January 28, 2022</time></span>
+
+  </div>
+  <section class="summary">
+    Designing No Collision Guarantee System. So for the past few days, I&rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
+The Architecture So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
+The slug is our main component, it should always be unique.  <a href="/posts/no-collision-guaranteed/">Read More...</a>
+  </section>
+</article>
+
+  
+    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="/posts/gsoc_with_ceph/">Visual Regression Testing of Ceph Dashboard</a></h2>
+  <div class="meta">
+
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2021-09-01">September 01, 2021</time></span>
+
+  </div>
+  <section class="summary">
+    This summer I worked with The Ceph Foundation under Google Summer Of Code &lsquo;21 (GSoC) programme.
+Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.
+In this blog, I&rsquo;ll share my journey of completing the project &ldquo;Visual Regression Testing of Ceph Dashboard&rdquo;.  <a href="/posts/gsoc_with_ceph/">Read More...</a>
+  </section>
+</article>
+
   
     <article class="list-item" itemscope itemtype="http://schema.org/Blog">
   <h2 class="headline" itemprop="headline"><a href="/posts/type-coercion-javascript/">Type Coercion In JavaScript</a></h2>
@@ -53,28 +86,26 @@ What is type coercion? There are 6 primitive data types in JavaScript: undefined
 </article>
 
   
-    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="/posts/my-first-post/">My First Post</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2021-04-27">April 27, 2021</time></span>
-
-  </div>
-  <section class="summary">
-    Welcome Yes, if you can see this, you&rsquo;re seeing my first post where I painfully spent hours trying to set up hugo and tweaked to my liking💖! 
-  </section>
-</article>
-
-  
 </main>
+
+  <nav class="paginator">
+    
+    <span class="nav-left faded">&lt; Prev</span>
+    
+
+    <span>1 / 2</span>
+
+    
+    <a class="nav-right" href="/posts/page/2/">Next &gt;</a>
+    
+  </nav>
 
 
 </div>
 
 <footer>
   <div class="container">
-    <span class="copyright">&copy; 2021 Aaryan&#39;s 📖 - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
+    <span class="copyright">&copy;  2022 Aaryan&#39;s 📖 - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
 
   </div>
   <span class="gopher" title="Wheeeee!"></span>

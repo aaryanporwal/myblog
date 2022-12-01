@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/style.css" type="text/css">
 <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Aaryan&#39;s 📖">
-<title>404 Page not found</title>
+<title>Problem-Solving</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -36,18 +36,27 @@
 <div class="container">
 
 
-<main role="main" class="page-not-found">
+<main role="main" class="article-list">
+  <h1 class="list-title">Problem-Solving</h1>
+  
+    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
+  <h2 class="headline" itemprop="headline"><a href="/posts/no-collision-guaranteed/">No Collision Guarantee</a></h2>
+  <div class="meta">
 
-  <h1>
-    <span class="base05">[</span><span class="base08">4</span><span class="base09">0</span><span class="base0a">4</span><span class="base05">]</span>
-    <span class="base05"># _</span>
-  </h1>
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2022-01-28">January 28, 2022</time></span>
 
-  <h2>
-    not found
-  </h2>
+  </div>
+  <section class="summary">
+    Designing No Collision Guarantee System. So for the past few days, I&rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
+The Architecture So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
+The slug is our main component, it should always be unique.  <a href="/posts/no-collision-guaranteed/">Read More...</a>
+  </section>
+</article>
 
+  
 </main>
+
 
 </div>
 

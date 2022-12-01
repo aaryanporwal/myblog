@@ -6,7 +6,29 @@
     <description>Recent content on Aaryan&#39;s 📖</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Jun 2021 04:57:26 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jan 2022 17:49:17 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>No Collision Guarantee</title>
+      <link>/posts/no-collision-guaranteed/</link>
+      <pubDate>Fri, 28 Jan 2022 17:49:17 +0530</pubDate>
+      
+      <guid>/posts/no-collision-guaranteed/</guid>
+      <description>Designing No Collision Guarantee System. So for the past few days, I&amp;rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
+The Architecture So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
+The slug is our main component, it should always be unique.</description>
+    </item>
+    
+    <item>
+      <title>Visual Regression Testing of Ceph Dashboard</title>
+      <link>/posts/gsoc_with_ceph/</link>
+      <pubDate>Wed, 01 Sep 2021 17:10:16 +0530</pubDate>
+      
+      <guid>/posts/gsoc_with_ceph/</guid>
+      <description>This summer I worked with The Ceph Foundation under Google Summer Of Code &amp;lsquo;21 (GSoC) programme.
+Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.
+In this blog, I&amp;rsquo;ll share my journey of completing the project &amp;ldquo;Visual Regression Testing of Ceph Dashboard&amp;rdquo;.</description>
+    </item>
+    
     <item>
       <title>Type Coercion In JavaScript</title>
       <link>/posts/type-coercion-javascript/</link>
@@ -15,6 +37,16 @@
       <guid>/posts/type-coercion-javascript/</guid>
       <description>This small blog was sparked by a post that I saw: There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&amp;rsquo;m gonna try to explain what type coercion is and what&amp;rsquo;s happening in that post 😉.
 What is type coercion? There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol.</description>
+    </item>
+    
+    <item>
+      <title>Node.js To The Moon 🚀</title>
+      <link>/posts/scaling-your-node.js-app-like-a-boss/</link>
+      <pubDate>Wed, 05 May 2021 19:12:41 +0530</pubDate>
+      
+      <guid>/posts/scaling-your-node.js-app-like-a-boss/</guid>
+      <description>Scaling your Node.js app like a boss Is Node even Node, if you&amp;rsquo;re not running a Node process on every CPU core of your machine 😁?
+So a little history: JavaScript was created out of the rapidly growing demand for dynamic content on the web, it was designed to do simple things like creating a colourful mouse trail or to validate forms. It was only in 2009 that Ryan Dahl, creator of Node.</description>
     </item>
     
     <item>

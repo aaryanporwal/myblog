@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Aaryan&#39;s 📖</title>
+    <link>/tags/javascript/</link>
+    <description>Recent content in javascript on Aaryan&#39;s 📖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Jun 2021 04:57:26 +0530</lastBuildDate><atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Type Coercion In JavaScript</title>
+      <link>/posts/type-coercion-javascript/</link>
+      <pubDate>Fri, 25 Jun 2021 04:57:26 +0530</pubDate>
+      
+      <guid>/posts/type-coercion-javascript/</guid>
+      <description>This small blog was sparked by a post that I saw: There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&amp;rsquo;m gonna try to explain what type coercion is and what&amp;rsquo;s happening in that post 😉.
+What is type coercion? There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ceph on Aaryan&#39;s 📖</title>
+    <link>/tags/ceph/</link>
+    <description>Recent content in ceph on Aaryan&#39;s 📖</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Sep 2021 17:10:16 +0530</lastBuildDate><atom:link href="/tags/ceph/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual Regression Testing of Ceph Dashboard</title>
+      <link>/posts/gsoc_with_ceph/</link>
+      <pubDate>Wed, 01 Sep 2021 17:10:16 +0530</pubDate>
+      
+      <guid>/posts/gsoc_with_ceph/</guid>
+      <description>This summer I worked with The Ceph Foundation under Google Summer Of Code &amp;lsquo;21 (GSoC) programme.
+Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.
+In this blog, I&amp;rsquo;ll share my journey of completing the project &amp;ldquo;Visual Regression Testing of Ceph Dashboard&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>
