@@ -1,4 +1,10 @@
-{{/* Google Analytics bridge partial for PaperMod */}}
-{{- if and (hugo.IsProduction) .Site.GoogleAnalytics -}}
-  {{ template "_internal/google_analytics.html" . }}
+{{- if and (hugo.IsProduction) site.GoogleAnalytics -}}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.GoogleAnalytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.GoogleAnalytics }}');
+  </script>
 {{- end -}}
