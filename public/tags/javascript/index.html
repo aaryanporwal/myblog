@@ -124,7 +124,7 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Thinking in React
+    <h2 class="entry-hint-parent">React Re-rendering: Stop the Madness 🎯
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
           <path
@@ -134,13 +134,14 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>How does React re-rendering work and when does react re-render a component? Let’s dive into it with some fun examples!
-React re-rendering React re-renders a component when either of the following happens:
-The component’s props change. The component’s state changes. The component’s parent component re-renders. The key thing to note here is that React does a shallow comparison of props, so passing a new object or function reference triggers a re-render even if the values inside are identical.
+    <p>Ever wonder why your React app feels sluggish? Let’s fix those unnecessary re-renders.
+When Does React Re-render? Three triggers:
+Props change State changes Parent re-renders The catch? React does shallow comparisons. New object/function references = re-render, even with identical values. That’s where useMemo, useCallback, and React.memo save the day.
+The Problem // ❌ ExpensiveChild re-renders on EVERY keystroke function Parent() { const [count, setCount] = useState(0); const [text, setText] = useState(&#34;&#34;); return ( &lt;&gt; &lt;input value={text} onChange={(e) =&gt; setText(e.target.value)} /&gt; &lt;button onClick={() =&gt; setCount(count &#43; 1)}&gt;Count: {count}&lt;/button&gt; &lt;ExpensiveChild count={count} /&gt; &lt;/&gt; ); } The Fix // ✅ Only re-renders when count actually changes const ExpensiveChild = memo(function ExpensiveChild({ count }) { return &lt;div&gt;Count is: {count}&lt;/div&gt;; }); Callbacks Are Trickier // ❌ New function reference every render const handleClick = () =&gt; console.log(&#34;Clicked!&#34;); // ✅ Stable reference with useCallback const handleClick = useCallback(() =&gt; { console.log(&#34;Clicked!&#34;); }, []); Pro Tip: Use named functions in memo() instead of arrow functions. React DevTools will thank you with better debugging instead of “Anonymous” components everywhere.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-12-13 17:30:40 +0530 IST'>December 13, 2025</span>&nbsp;·&nbsp;<span>1 min</span></footer>
-  <a class="entry-link" aria-label="post link to Thinking in React" href="//localhost:1313/posts/thinking-in-react/"></a>
+  <footer class="entry-footer"><span title='2025-12-01 17:30:40 +0530 IST'>December 1, 2025</span>&nbsp;·&nbsp;<span>2 min</span></footer>
+  <a class="entry-link" aria-label="post link to React Re-rendering: Stop the Madness 🎯" href="//localhost:1313/posts/thinking-in-react/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
