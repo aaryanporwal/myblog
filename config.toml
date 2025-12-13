@@ -2,6 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Aaryan's 📖"
 theme = "PaperMod"
+googleAnalytics = "G-J8T8XJEXE3"
 description = "Aaryan Porwal's blog where he occassionally writes about tech, life and his journey in Open Source Software."
 
 [outputs]

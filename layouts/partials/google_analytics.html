@@ -1,0 +1,4 @@
+{{/* Google Analytics bridge partial for PaperMod */}}
+{{- if and (hugo.IsProduction) .Site.GoogleAnalytics -}}
+  {{ template "_internal/google_analytics.html" . }}
+{{- end -}}
