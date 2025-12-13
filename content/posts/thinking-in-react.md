@@ -1,7 +1,7 @@
 ---
 title: "React Re-rendering: Stop the Madness 🎯"
 date: 2025-12-01T17:30:40+05:30
-draft: true
+draft: false
 tags:
   - "react"
   - "frontend"
