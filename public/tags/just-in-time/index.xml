@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Just in Time on Aaryan&#39;s 📖</title>
+    <link>//localhost:1313/tags/just-in-time/</link>
+    <description>Recent content in Just in Time on Aaryan&#39;s 📖</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Oct 2021 17:18:54 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/just-in-time/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Runtime_vs_compiletime</title>
+      <link>//localhost:1313/posts/runtime_vs_compiletime/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/posts/runtime_vs_compiletime/</guid>
+      <description>&lt;h1 id=&#34;runtime-vs-compile-time&#34;&gt;Runtime vs. Compile Time&lt;/h1&gt;
+&lt;p&gt;When I started programming, I heard a lot of these words such as: &amp;ldquo;build-time&amp;rdquo;, &amp;ldquo;compile time&amp;rdquo;, &amp;ldquo;runtime&amp;rdquo;, etc.
+This really confused me after some time because the names didn&amp;rsquo;t seem very intuitive to me.
+So I wrote the definitions of all and put them in one place in my notebook, which is what I&amp;rsquo;m gonna be sharing in this blog 😄 .
+After that we&amp;rsquo;re gonna look at the difference between runtime vs compile time errors.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

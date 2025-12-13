@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Problem-Solving on Aaryan&#39;s 📖</title>
-    <link>/tags/problem-solving/</link>
+    <link>//localhost:1313/tags/problem-solving/</link>
     <description>Recent content in Problem-Solving on Aaryan&#39;s 📖</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jan 2022 17:49:17 +0530</lastBuildDate><atom:link href="/tags/problem-solving/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jan 2022 17:49:17 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/problem-solving/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>No Collision Guarantee</title>
-      <link>/posts/no-collision-guaranteed/</link>
+      <link>//localhost:1313/posts/no-collision-guaranteed/</link>
       <pubDate>Fri, 28 Jan 2022 17:49:17 +0530</pubDate>
-      
-      <guid>/posts/no-collision-guaranteed/</guid>
-      <description>Designing No Collision Guarantee System. So for the past few days, I&amp;rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
-The Architecture So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
-The slug is our main component, it should always be unique.</description>
+      <guid>//localhost:1313/posts/no-collision-guaranteed/</guid>
+      <description>&lt;h1 id=&#34;designing-no-collision-guarantee-system&#34;&gt;Designing No Collision Guarantee System.&lt;/h1&gt;
+&lt;p&gt;So for the past few days, I&amp;rsquo;ve been trying to build a &lt;em&gt;distributed highly scalable, no collision guaranteed URL shortening service&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;the-architecture&#34;&gt;The Architecture&lt;/h2&gt;
+&lt;p&gt;So if you pass in a long url called &lt;code&gt;https://longurl.com&lt;/code&gt;, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: &lt;code&gt;https://shorturl.com/[slug]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The slug is our main component, it should always be unique.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

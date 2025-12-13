@@ -1,62 +1,127 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Aaryan&#39;s 📖</title>
-    <link>/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content on Aaryan&#39;s 📖</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jan 2022 17:49:17 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Dec 2025 17:30:40 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Re-rendering: Stop the Madness 🎯</title>
+      <link>//localhost:1313/posts/thinking-in-react/</link>
+      <pubDate>Sat, 13 Dec 2025 17:30:40 +0530</pubDate>
+      <guid>//localhost:1313/posts/thinking-in-react/</guid>
+      <description>&lt;p&gt;Ever wonder why your React app feels sluggish? Let&amp;rsquo;s fix those unnecessary re-renders.&lt;/p&gt;
+&lt;h2 id=&#34;when-does-react-re-render&#34;&gt;When Does React Re-render?&lt;/h2&gt;
+&lt;p&gt;Three triggers:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Props change&lt;/li&gt;
+&lt;li&gt;State changes&lt;/li&gt;
+&lt;li&gt;Parent re-renders&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;The catch?&lt;/strong&gt; React does shallow comparisons. New object/function references = re-render, even with identical values. That&amp;rsquo;s where &lt;code&gt;useMemo&lt;/code&gt;, &lt;code&gt;useCallback&lt;/code&gt;, and &lt;code&gt;React.memo&lt;/code&gt; save the day.&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// ❌ ExpensiveChild re-renders on EVERY keystroke
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Parent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setText&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;onChange&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setText&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;button&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;onClick&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)}&amp;gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;button&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ExpensiveChild&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-fix&#34;&gt;The Fix&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// ✅ Only re-renders when count actually changes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ExpensiveChild&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;memo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ExpensiveChild&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Count&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;is&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;callbacks-are-trickier&#34;&gt;Callbacks Are Trickier&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// ❌ New function reference every render
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;handleClick&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Clicked!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// ✅ Stable reference with useCallback
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;handleClick&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useCallback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Clicked!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Pro Tip:&lt;/strong&gt; Use named functions in &lt;code&gt;memo()&lt;/code&gt; instead of arrow functions. React DevTools will thank you with better debugging instead of &amp;ldquo;Anonymous&amp;rdquo; components everywhere.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What&#39;s wrong with JavaScript sort() function</title>
+      <link>//localhost:1313/posts/js-sort-function/</link>
+      <pubDate>Thu, 01 Dec 2022 21:18:47 +0530</pubDate>
+      <guid>//localhost:1313/posts/js-sort-function/</guid>
+      <description>&lt;p&gt;This year I decided to solve the famous Advent of Code Challenge in both Python and &lt;em&gt;JavaScript&lt;/em&gt;.
+I&amp;rsquo;m also gonna be posting my solutions on my &lt;a href=&#34;https://github.com/aaryanporwal/advent_of_code_2022&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And while solving today&amp;rsquo;s &lt;a href=&#34;https://adventofcode.com/2022/day/1&#34;&gt;advent of code challenge&lt;/a&gt;, in javascript. I came across a weird behaviour of the &lt;code&gt;sort()&lt;/code&gt; function in javascript.
+I was trying to sort an array of numbers, and I was using the sort function like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;myArray&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;myArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;then I console.log()ed it to see the result, and it was sorted in ascending order. But when I tried to sort it in descending order, it didn&amp;rsquo;t work. I tried to do this:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>No Collision Guarantee</title>
-      <link>/posts/no-collision-guaranteed/</link>
+      <link>//localhost:1313/posts/no-collision-guaranteed/</link>
       <pubDate>Fri, 28 Jan 2022 17:49:17 +0530</pubDate>
-      
-      <guid>/posts/no-collision-guaranteed/</guid>
-      <description>Designing No Collision Guarantee System. So for the past few days, I&amp;rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
-The Architecture So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
-The slug is our main component, it should always be unique.</description>
+      <guid>//localhost:1313/posts/no-collision-guaranteed/</guid>
+      <description>&lt;h1 id=&#34;designing-no-collision-guarantee-system&#34;&gt;Designing No Collision Guarantee System.&lt;/h1&gt;
+&lt;p&gt;So for the past few days, I&amp;rsquo;ve been trying to build a &lt;em&gt;distributed highly scalable, no collision guaranteed URL shortening service&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;the-architecture&#34;&gt;The Architecture&lt;/h2&gt;
+&lt;p&gt;So if you pass in a long url called &lt;code&gt;https://longurl.com&lt;/code&gt;, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: &lt;code&gt;https://shorturl.com/[slug]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The slug is our main component, it should always be unique.&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>Runtime_vs_compiletime</title>
+      <link>//localhost:1313/posts/runtime_vs_compiletime/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/posts/runtime_vs_compiletime/</guid>
+      <description>&lt;h1 id=&#34;runtime-vs-compile-time&#34;&gt;Runtime vs. Compile Time&lt;/h1&gt;
+&lt;p&gt;When I started programming, I heard a lot of these words such as: &amp;ldquo;build-time&amp;rdquo;, &amp;ldquo;compile time&amp;rdquo;, &amp;ldquo;runtime&amp;rdquo;, etc.
+This really confused me after some time because the names didn&amp;rsquo;t seem very intuitive to me.
+So I wrote the definitions of all and put them in one place in my notebook, which is what I&amp;rsquo;m gonna be sharing in this blog 😄 .
+After that we&amp;rsquo;re gonna look at the difference between runtime vs compile time errors.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Visual Regression Testing of Ceph Dashboard</title>
-      <link>/posts/gsoc_with_ceph/</link>
+      <link>//localhost:1313/posts/gsoc_with_ceph/</link>
       <pubDate>Wed, 01 Sep 2021 17:10:16 +0530</pubDate>
-      
-      <guid>/posts/gsoc_with_ceph/</guid>
-      <description>This summer I worked with The Ceph Foundation under Google Summer Of Code &amp;lsquo;21 (GSoC) programme.
-Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.
-In this blog, I&amp;rsquo;ll share my journey of completing the project &amp;ldquo;Visual Regression Testing of Ceph Dashboard&amp;rdquo;.</description>
+      <guid>//localhost:1313/posts/gsoc_with_ceph/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Gsoc with Ceph Image&#34; loading=&#34;lazy&#34; src=&#34;https://cloud-n3ex22j44-hack-club-bot.vercel.app/0gsocxjodc.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This summer I worked with The Ceph Foundation under &lt;a href=&#34;https://summerofcode.withgoogle.com/how-it-works/&#34;&gt;Google Summer Of Code &amp;lsquo;21&lt;/a&gt; (GSoC) programme.&lt;/p&gt;
+&lt;p&gt;Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.&lt;/p&gt;
+&lt;p&gt;In this blog, I&amp;rsquo;ll share my journey of completing the project &amp;ldquo;Visual Regression Testing of Ceph Dashboard&amp;rdquo;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Type Coercion In JavaScript</title>
-      <link>/posts/type-coercion-javascript/</link>
+      <link>//localhost:1313/posts/type-coercion-javascript/</link>
       <pubDate>Fri, 25 Jun 2021 04:57:26 +0530</pubDate>
-      
-      <guid>/posts/type-coercion-javascript/</guid>
-      <description>This small blog was sparked by a post that I saw: There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&amp;rsquo;m gonna try to explain what type coercion is and what&amp;rsquo;s happening in that post 😉.
-What is type coercion? There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol.</description>
+      <guid>//localhost:1313/posts/type-coercion-javascript/</guid>
+      <description>&lt;p&gt;This small blog was sparked by a post that I saw: &lt;img alt=&#34;Weird JavaScript&#34; loading=&#34;lazy&#34; src=&#34;https://i.imgur.com/5JbayVc.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&amp;rsquo;m gonna try to explain what type coercion is and what&amp;rsquo;s happening in that post 😉.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-type-coercion&#34;&gt;What is type coercion?&lt;/h1&gt;
+&lt;p&gt;There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol. When you try to do things like adding two different data types together, JavaScript uses some rules to decide how it&amp;rsquo;s gonna coerce one type into the other type, to actually add them together.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Node.js To The Moon 🚀</title>
-      <link>/posts/scaling-your-node.js-app-like-a-boss/</link>
+      <link>//localhost:1313/posts/scaling-your-node.js-app-like-a-boss/</link>
       <pubDate>Wed, 05 May 2021 19:12:41 +0530</pubDate>
-      
-      <guid>/posts/scaling-your-node.js-app-like-a-boss/</guid>
-      <description>Scaling your Node.js app like a boss Is Node even Node, if you&amp;rsquo;re not running a Node process on every CPU core of your machine 😁?
-So a little history: JavaScript was created out of the rapidly growing demand for dynamic content on the web, it was designed to do simple things like creating a colourful mouse trail or to validate forms. It was only in 2009 that Ryan Dahl, creator of Node.</description>
+      <guid>//localhost:1313/posts/scaling-your-node.js-app-like-a-boss/</guid>
+      <description>&lt;h1 id=&#34;scaling-your-nodejs-app-like-a-boss&#34;&gt;Scaling your Node.js app like a boss&lt;/h1&gt;
+&lt;p&gt;Is Node even Node, if you&amp;rsquo;re not running a Node process on every CPU core of your machine 😁?&lt;/p&gt;
+&lt;p&gt;So a little history: JavaScript was created out of the rapidly growing demand for dynamic content on the web, it was designed to do simple things like creating a colourful mouse trail or to validate forms. It was only in 2009 that Ryan Dahl, creator of Node.js, made it possible for developers to use JavaScript to write back-end code.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>My First Post</title>
-      <link>/posts/my-first-post/</link>
+      <link>//localhost:1313/posts/my-first-post/</link>
       <pubDate>Tue, 27 Apr 2021 17:10:16 +0530</pubDate>
-      
-      <guid>/posts/my-first-post/</guid>
-      <description>Welcome Yes, if you can see this, you&amp;rsquo;re seeing my first post where I painfully spent hours trying to set up hugo and tweaked to my liking💖!</description>
+      <guid>//localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;h1 id=&#34;welcome&#34;&gt;Welcome&lt;/h1&gt;
+&lt;p&gt;Yes, if you can see this, you&amp;rsquo;re seeing my first post where I painfully spent hours trying to set up hugo and tweaked to my liking💖!&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

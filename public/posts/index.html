@@ -1,116 +1,331 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-<meta charset="utf-8">
-<meta name="description" content="Aaryan Porwal&#39;s blog where he occassionally writes about tech and his journey in Open Source Software.">
-<meta name="generator" content="Hugo 0.92.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/style.css" type="text/css">
-<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Aaryan&#39;s 📖">
-<title>Posts</title>
+<html lang="en" dir="auto" data-theme="auto">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Posts | Aaryan&#39;s 📖</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - Aaryan&#39;s 📖">
+<meta name="author" content="">
+<link rel="canonical" href="//localhost:1313/posts/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="//localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="//localhost:1313/posts/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="//localhost:1313/posts/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<script async defer data-website-id="27c08b6f-fe28-4852-918c-645925d65e75" src="https://umami-railway-starter-production.up.railway.app/umami.js"></script>
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
 </head>
-<body>
-
-<header>
-  <div class="container clearfix">
-    
-    
-    [<a class="path home" href="/">Home</a>] &nbsp;
-    [<a class="path" target="_blank" href="https://scrapbook.hackclub.com/aaryan">Scrapbook</a>] &nbsp;
-    [<a class="path" rel="noopener" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>] &nbsp;
-    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>] &nbsp;
-    <span class="caret">#_</span>
-    <div class="right">
-      
-    </div>
-  </div>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="//localhost:1313/" accesskey="h" title="Aaryan&#39;s 📖 (Alt + H)">Aaryan&#39;s 📖</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="//localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
 </header>
 
-<div class="container">
-
-
-<main role="main" class="article-list">
-  <h1 class="list-title">Posts</h1>
-  
-    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="/posts/no-collision-guaranteed/">No Collision Guarantee</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2022-01-28">January 28, 2022</time></span>
-
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">React Re-rendering: Stop the Madness 🎯
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Ever wonder why your React app feels sluggish? Let’s fix those unnecessary re-renders.
+When Does React Re-render? Three triggers:
+Props change State changes Parent re-renders The catch? React does shallow comparisons. New object/function references = re-render, even with identical values. That’s where useMemo, useCallback, and React.memo save the day.
+The Problem // ❌ ExpensiveChild re-renders on EVERY keystroke function Parent() { const [count, setCount] = useState(0); const [text, setText] = useState(&#34;&#34;); return ( &lt;&gt; &lt;input value={text} onChange={(e) =&gt; setText(e.target.value)} /&gt; &lt;button onClick={() =&gt; setCount(count &#43; 1)}&gt;Count: {count}&lt;/button&gt; &lt;ExpensiveChild count={count} /&gt; &lt;/&gt; ); } The Fix // ✅ Only re-renders when count actually changes const ExpensiveChild = memo(function ExpensiveChild({ count }) { return &lt;div&gt;Count is: {count}&lt;/div&gt;; }); Callbacks Are Trickier // ❌ New function reference every render const handleClick = () =&gt; console.log(&#34;Clicked!&#34;); // ✅ Stable reference with useCallback const handleClick = useCallback(() =&gt; { console.log(&#34;Clicked!&#34;); }, []); Pro Tip: Use named functions in memo() instead of arrow functions. React DevTools will thank you with better debugging instead of “Anonymous” components everywhere.
+...</p>
   </div>
-  <section class="summary">
-    Designing No Collision Guarantee System. So for the past few days, I&rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
+  <footer class="entry-footer"><span title='2025-12-13 17:30:40 +0530 IST'>December 13, 2025</span>&nbsp;·&nbsp;<span>2 min</span></footer>
+  <a class="entry-link" aria-label="post link to React Re-rendering: Stop the Madness 🎯" href="//localhost:1313/posts/thinking-in-react/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">What&#39;s wrong with JavaScript sort() function
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This year I decided to solve the famous Advent of Code Challenge in both Python and JavaScript. I’m also gonna be posting my solutions on my GitHub repository.
+And while solving today’s advent of code challenge, in javascript. I came across a weird behaviour of the sort() function in javascript. I was trying to sort an array of numbers, and I was using the sort function like this:
+const myArray = myArray.sort(); then I console.log()ed it to see the result, and it was sorted in ascending order. But when I tried to sort it in descending order, it didn’t work. I tried to do this:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-01 21:18:47 +0530 IST'>December 1, 2022</span>&nbsp;·&nbsp;<span>2 min</span></footer>
+  <a class="entry-link" aria-label="post link to What&#39;s wrong with JavaScript sort() function" href="//localhost:1313/posts/js-sort-function/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">No Collision Guarantee
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Designing No Collision Guarantee System. So for the past few days, I’ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
 The Architecture So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
-The slug is our main component, it should always be unique.  <a href="/posts/no-collision-guaranteed/">Read More...</a>
-  </section>
+The slug is our main component, it should always be unique.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-01-28 17:49:17 +0530 IST'>January 28, 2022</span>&nbsp;·&nbsp;<span>3 min</span></footer>
+  <a class="entry-link" aria-label="post link to No Collision Guarantee" href="//localhost:1313/posts/no-collision-guaranteed/"></a>
 </article>
 
-  
-    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="/posts/gsoc_with_ceph/">Visual Regression Testing of Ceph Dashboard</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2021-09-01">September 01, 2021</time></span>
-
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Runtime_vs_compiletime
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Runtime vs. Compile Time When I started programming, I heard a lot of these words such as: “build-time”, “compile time”, “runtime”, etc. This really confused me after some time because the names didn’t seem very intuitive to me. So I wrote the definitions of all and put them in one place in my notebook, which is what I’m gonna be sharing in this blog 😄 . After that we’re gonna look at the difference between runtime vs compile time errors.
+...</p>
   </div>
-  <section class="summary">
-    This summer I worked with The Ceph Foundation under Google Summer Of Code &lsquo;21 (GSoC) programme.
+  <footer class="entry-footer"><span title='2021-10-02 17:18:54 +0530 IST'>October 2, 2021</span>&nbsp;·&nbsp;<span>4 min</span></footer>
+  <a class="entry-link" aria-label="post link to Runtime_vs_compiletime" href="//localhost:1313/posts/runtime_vs_compiletime/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Visual Regression Testing of Ceph Dashboard
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+This summer I worked with The Ceph Foundation under Google Summer Of Code ‘21 (GSoC) programme.
 Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.
-In this blog, I&rsquo;ll share my journey of completing the project &ldquo;Visual Regression Testing of Ceph Dashboard&rdquo;.  <a href="/posts/gsoc_with_ceph/">Read More...</a>
-  </section>
+In this blog, I’ll share my journey of completing the project “Visual Regression Testing of Ceph Dashboard”.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-09-01 17:10:16 +0530 IST'>September 1, 2021</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>aaryan</span></footer>
+  <a class="entry-link" aria-label="post link to Visual Regression Testing of Ceph Dashboard" href="//localhost:1313/posts/gsoc_with_ceph/"></a>
 </article>
 
-  
-    <article class="list-item" itemscope itemtype="http://schema.org/Blog">
-  <h2 class="headline" itemprop="headline"><a href="/posts/type-coercion-javascript/">Type Coercion In JavaScript</a></h2>
-  <div class="meta">
-
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2021-06-25">June 25, 2021</time></span>
-
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Type Coercion In JavaScript
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This small blog was sparked by a post that I saw: There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I’m gonna try to explain what type coercion is and what’s happening in that post 😉.
+What is type coercion? There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol. When you try to do things like adding two different data types together, JavaScript uses some rules to decide how it’s gonna coerce one type into the other type, to actually add them together.
+...</p>
   </div>
-  <section class="summary">
-    This small blog was sparked by a post that I saw: There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&rsquo;m gonna try to explain what type coercion is and what&rsquo;s happening in that post 😉.
-What is type coercion? There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol.  <a href="/posts/type-coercion-javascript/">Read More...</a>
-  </section>
+  <footer class="entry-footer"><span title='2021-06-25 04:57:26 +0530 IST'>June 25, 2021</span>&nbsp;·&nbsp;<span>2 min</span></footer>
+  <a class="entry-link" aria-label="post link to Type Coercion In JavaScript" href="//localhost:1313/posts/type-coercion-javascript/"></a>
 </article>
 
-  
-</main>
-
-  <nav class="paginator">
-    
-    <span class="nav-left faded">&lt; Prev</span>
-    
-
-    <span>1 / 2</span>
-
-    
-    <a class="nav-right" href="/posts/page/2/">Next &gt;</a>
-    
-  </nav>
-
-
-</div>
-
-<footer>
-  <div class="container">
-    <span class="copyright">&copy;  2022 Aaryan&#39;s 📖 - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
-
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Node.js To The Moon 🚀
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Scaling your Node.js app like a boss Is Node even Node, if you’re not running a Node process on every CPU core of your machine 😁?
+So a little history: JavaScript was created out of the rapidly growing demand for dynamic content on the web, it was designed to do simple things like creating a colourful mouse trail or to validate forms. It was only in 2009 that Ryan Dahl, creator of Node.js, made it possible for developers to use JavaScript to write back-end code.
+...</p>
   </div>
-  <span class="gopher" title="Wheeeee!"></span>
+  <footer class="entry-footer"><span title='2021-05-05 19:12:41 +0530 IST'>May 5, 2021</span>&nbsp;·&nbsp;<span>4 min</span></footer>
+  <a class="entry-link" aria-label="post link to Node.js To The Moon 🚀" href="//localhost:1313/posts/scaling-your-node.js-app-like-a-boss/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">My First Post
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Welcome Yes, if you can see this, you’re seeing my first post where I painfully spent hours trying to set up hugo and tweaked to my liking💖!
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-27 17:10:16 +0530 IST'>April 27, 2021</span>&nbsp;·&nbsp;<span>1 min</span></footer>
+  <a class="entry-link" aria-label="post link to My First Post" href="//localhost:1313/posts/my-first-post/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="//localhost:1313/">Aaryan&#39;s 📖</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
-</html>
 
+</html>

@@ -1,72 +1,182 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-<meta charset="utf-8">
-<meta name="description" content="Aaryan Porwal&#39;s blog where he occassionally writes about tech and his journey in Open Source Software.">
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Visual Regression Testing of Ceph Dashboard | Aaryan&#39;s 📖</title>
+<meta name="keywords" content="ceph, dashboard, testing">
+<meta name="description" content="
+This summer I worked with The Ceph Foundation under Google Summer Of Code &lsquo;21 (GSoC) programme.
+Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.
+In this blog, I&rsquo;ll share my journey of completing the project &ldquo;Visual Regression Testing of Ceph Dashboard&rdquo;.">
 <meta name="author" content="aaryan">
-<meta name="generator" content="Hugo 0.92.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/style.css" type="text/css">
-<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Aaryan&#39;s 📖">
-<title>Visual Regression Testing of Ceph Dashboard</title>
+<link rel="canonical" href="//localhost:1313/posts/gsoc_with_ceph/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="//localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="//localhost:1313/posts/gsoc_with_ceph/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
 
-<script async defer data-website-id="27c08b6f-fe28-4852-918c-645925d65e75" src="https://umami-railway-starter-production.up.railway.app/umami.js"></script>
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
 </head>
-<body>
-
-<header>
-  <div class="container clearfix">
-    
-    
-    [<a class="path home" href="/">Home</a>] &nbsp;
-    [<a class="path" target="_blank" href="https://scrapbook.hackclub.com/aaryan">Scrapbook</a>] &nbsp;
-    [<a class="path" rel="noopener" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>] &nbsp;
-    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>] &nbsp;
-    <span class="caret">#_</span>
-    <div class="right">
-      
-    </div>
-  </div>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="//localhost:1313/" accesskey="h" title="Aaryan&#39;s 📖 (Alt + H)">Aaryan&#39;s 📖</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="//localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
-<div class="container">
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Visual Regression Testing of Ceph Dashboard
+    </h1>
+    <div class="post-meta"><span title='2021-09-01 17:10:16 +0530 IST'>September 1, 2021</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>aaryan</span>
 
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-<main role="main" class="article">
-  
-<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="meta">
+        <div class="inner"><ul>
+                <li>
+                    <a href="#experience" aria-label="Experience">Experience</a></li>
+                <li>
+                    <a href="#project" aria-label="Project">Project</a></li>
+                <li>
+                    <a href="#visual-regression-testing" aria-label="Visual Regression Testing">Visual Regression Testing</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#why-visual-regression-testing" aria-label="Why Visual Regression Testing">Why Visual Regression Testing</a></li>
+                <li>
+                    <a href="#what-are-visual-bugs" aria-label="What are Visual Bugs">What are Visual Bugs</a></li></ul>
+                    
+                <li>
+                    <a href="#algorithm" aria-label="Algorithm">Algorithm</a></li>
+                <li>
+                    <a href="#choosing-the-right-tool" aria-label="Choosing The Right Tool">Choosing The Right Tool</a></li>
+                <li>
+                    <a href="#benchmarking" aria-label="Benchmarking">Benchmarking</a></li>
+                <li>
+                    <a href="#bitmap-comparison" aria-label="Bitmap Comparison">Bitmap Comparison</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-visual-testing-is-not" aria-label="What Visual Testing Is Not">What Visual Testing Is Not</a></li>
+                <li>
+                    <a href="#links" aria-label="Links">Links</a></li>
+                <li>
+                    <a href="#to-conclude" aria-label="To Conclude">To Conclude</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2021-09-01">September 01, 2021</time></span>
-
-
-
-    <br>
-    <span class="key">tags:</span>
-    <span class="val">
-
-        <a href="/tags/ceph">ceph</a>
-
-        <a href="/tags/dashboard">dashboard</a>
-
-        <a href="/tags/testing">testing</a>
-
-    </span>
-
-  </div>
-  <h1 class="headline" itemprop="headline">Visual Regression Testing of Ceph Dashboard</h1>
-  <section class="body" itemprop="articleBody">
-    <p><img src="https://cloud-n3ex22j44-hack-club-bot.vercel.app/0gsocxjodc.png" alt="Gsoc with Ceph Image"></p>
+  <div class="post-content"><p><img alt="Gsoc with Ceph Image" loading="lazy" src="https://cloud-n3ex22j44-hack-club-bot.vercel.app/0gsocxjodc.png"></p>
 <p>This summer I worked with The Ceph Foundation under <a href="https://summerofcode.withgoogle.com/how-it-works/">Google Summer Of Code &lsquo;21</a> (GSoC) programme.</p>
 <p>Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.</p>
 <p>In this blog, I&rsquo;ll share my journey of completing the project &ldquo;Visual Regression Testing of Ceph Dashboard&rdquo;.</p>
-<h2 id="experience">Experience</h2>
+<h2 id="experience">Experience<a hidden class="anchor" aria-hidden="true" href="#experience">#</a></h2>
 <p>My GSoC experience has been amazing, from the initial days of having zero clue of how to navigate around the codebase to successfully completing my project. Along the way I learnt:</p>
 <ul>
 <li>Test Driven Developement (TDD).</li>
@@ -77,13 +187,13 @@
 <li>Working in scrum environment.</li>
 </ul>
 <p>Also I can&rsquo;t thank my mentors Ernesto Puerta and Alfonso Martinez and the whole Ceph dashboard team enough for their constant support, reviews, feedback and what not. Things I&rsquo;ve learnt during my period have not only made me an overall better programmer, but also the real world experience I gained, has been priceless.</p>
-<h2 id="project">Project</h2>
+<h2 id="project">Project<a hidden class="anchor" aria-hidden="true" href="#project">#</a></h2>
 <p>The project that I worked on was &ldquo;Visual Regression Testing of Ceph Dashboard&rdquo;, so Visual Regression Testing checks what the user will see after any code changes have been executed by comparing screenshots taken before and after code changes. This project immediately caught my eye when I first saw it on GSoC&rsquo;s project list, I had never heard of visual testing then and it just seemed like a very interesting idea. I dived deep into the project and it just kept getting better, there were all these amusing topics like pixel by pixel bitmap matching, anti-aliasing, browser offsets, etc. that I never lost interest from. In this blog post, I&rsquo;ll guide you through my project and the challenges I faced in my journey.</p>
-<h2 id="visual-regression-testing">Visual Regression Testing</h2>
+<h2 id="visual-regression-testing">Visual Regression Testing<a hidden class="anchor" aria-hidden="true" href="#visual-regression-testing">#</a></h2>
 <p>So to understand what visual regression testing is, we need to first understand what regression testing is. Regression Testing is used to verify that any system changes do not interfere with existing features and/or code structure. There’s a reason regression tests are part of almost every test suite in software development. It is common for devs to change or add a section of code, and having it unintentionally disrupt something that was previously working just fine.
 Visual Regression Testing applies the same logic but confines testing to the visual aspects of the software. In other words, it checks that code changes do not break any aspect of the software’s visual interface.
 A visual regression test checks what the user will see after any code changes have been executed by comparing screenshots taken before and after code changes. This is why visual regression tests are also sometimes called visual snapshot tests.</p>
-<h4 id="why-visual-regression-testing">Why Visual Regression Testing</h4>
+<h4 id="why-visual-regression-testing">Why Visual Regression Testing<a hidden class="anchor" aria-hidden="true" href="#why-visual-regression-testing">#</a></h4>
 <p>In ceph dashboard, we already have the whole testing pyramid set-up and running, so the question is why do we need visual testing?</p>
 <ol>
 <li>Visual bugs are rendering issues. And rendering validation is not what functional testing tools are designed to catch. Functional testing measures functional behavior.</li>
@@ -94,7 +204,7 @@ A visual regression test checks what the user will see after any code changes ha
 <li>Undergoing large refactorings.</li>
 <li>Upgrading frameworks or libraries which can impact many components.</li>
 </ul>
-<h4 id="what-are-visual-bugs">What are Visual Bugs</h4>
+<h4 id="what-are-visual-bugs">What are Visual Bugs<a hidden class="anchor" aria-hidden="true" href="#what-are-visual-bugs">#</a></h4>
 <p>Visual bugs are problems associated with the user interface (also known as GUI) of a web or mobile application. Although these bugs do not have any functional impact, they can ruin that particular website or app’s user experience.</p>
 <p>A few examples of Visual bugs would be:</p>
 <ul>
@@ -106,21 +216,21 @@ A visual regression test checks what the user will see after any code changes ha
 <p>In some cases, the visual bugs obstruct end-users from accessing the key functionalities of an application. In such a case, that bug needs to be reported as a functional bug.</p>
 <p>As mentioned earlier, any visual bug can ruin the user experience of an application. Consequently, this can negatively impact the way end-users perceive a particular brand online.</p>
 <p>Some examples of visual bugs around the internet:</p>
-<p><img src="https://cloud-ptmk9si51-hack-club-bot.vercel.app/0material-ui.png" alt="Visual bug in material-ui&rsquo;s website"></p>
+<p><img alt="Visual bug in material-ui&rsquo;s website" loading="lazy" src="https://cloud-ptmk9si51-hack-club-bot.vercel.app/0material-ui.png"></p>
 <p align = "center">
 Material-UI's website with misaligned buttons
 </p>
-<p><img src="https://cloud-m5lwnwhx0-hack-club-bot.vercel.app/0image.png" alt="Visual bug that causes a functional bug in login screen"></p>
+<p><img alt="Visual bug that causes a functional bug in login screen" loading="lazy" src="https://cloud-m5lwnwhx0-hack-club-bot.vercel.app/0image.png"></p>
 <p align = "center">
 And in this image, a visual bug obstructs user from accessing key functionality of an application. These types of visual bugs easily pass through undetected from End to end tests, because they mostly check for existence of elements
 </p>
-<h3 id="algorithm">Algorithm</h3>
+<h3 id="algorithm">Algorithm<a hidden class="anchor" aria-hidden="true" href="#algorithm">#</a></h3>
 <p>The general algorithm for visual regression tests looks like this:</p>
-<p><img src="https://cloud-cp28l9omx-hack-club-bot.vercel.app/0image.png" alt="Visual tests flowchart"></p>
+<p><img alt="Visual tests flowchart" loading="lazy" src="https://cloud-cp28l9omx-hack-club-bot.vercel.app/0image.png"></p>
 <p align = "center">
 Visual regression tests flowchart
 </p>
-<h3 id="choosing-the-right-tool">Choosing The Right Tool</h3>
+<h3 id="choosing-the-right-tool">Choosing The Right Tool<a hidden class="anchor" aria-hidden="true" href="#choosing-the-right-tool">#</a></h3>
 <p>One of the main task for my project was choosing <strong>the best</strong> tool for visual regression testing. For this, I came up with a criteria to judge various tools, it was:</p>
 <ul>
 <li>Minimal manual effort.</li>
@@ -132,12 +242,12 @@ Visual regression tests flowchart
 <li>Generate reports with comparisons.</li>
 <li>CI/CD integration.</li>
 </ul>
-<h3 id="benchmarking">Benchmarking</h3>
+<h3 id="benchmarking">Benchmarking<a hidden class="anchor" aria-hidden="true" href="#benchmarking">#</a></h3>
 <p>The next step in my process was comparing tools, matching them with the criteria and benchmarking them.</p>
-<p><img src="https://cloud-hvyz9malq-hack-club-bot.vercel.app/0image.png" alt="Benchmark table"></p>
-<h3 id="bitmap-comparison">Bitmap Comparison</h3>
+<p><img alt="Benchmark table" loading="lazy" src="https://cloud-hvyz9malq-hack-club-bot.vercel.app/0image.png"></p>
+<h3 id="bitmap-comparison">Bitmap Comparison<a hidden class="anchor" aria-hidden="true" href="#bitmap-comparison">#</a></h3>
 <p>The problem with the first three tools was that they used pixel by pixel <strong>bitmap matching</strong>. In bitmap comparison, a bitmap of a screen is captured at various points of a test run and its pixels are compared to a baseline bitmap. In comparison stage they iterate through each pixel pair, then check if the color hex code is the same. If the color codes are different, it raises a visual bug. While these are very fast, they are prone to a lot of false positives.</p>
-<p><img src="https://cloud-r2fzsbzj6-hack-club-bot.vercel.app/0image.png" alt="How bitmap comparison works"></p>
+<p><img alt="How bitmap comparison works" loading="lazy" src="https://cloud-r2fzsbzj6-hack-club-bot.vercel.app/0image.png"></p>
 <p align = "center">
 How bitmap comparison works
 </p>
@@ -148,7 +258,7 @@ How bitmap comparison works
 <p>When you have dynamic content that changes — where you want to check to ensure that everything is laid out with proper alignments and no overlaps. Pixel comparison tools fail here.</p>
 </li>
 </ol>
-<p><img src="https://cloud-1q92atgke-hack-club-bot.vercel.app/0image.png" alt="False positive detected by pixel match"></p>
+<p><img alt="False positive detected by pixel match" loading="lazy" src="https://cloud-1q92atgke-hack-club-bot.vercel.app/0image.png"></p>
 <p align = "center">
 False positive due to Dynamic data in Ceph Dashboard
 </p>
@@ -156,11 +266,11 @@ False positive due to Dynamic data in Ceph Dashboard
 <li><strong>Anti-aliasing &amp; Browser Offsets</strong>:</li>
 </ol>
 <p>Font smoothing algorithms, image resizing, graphics cards, and even rendering algorithms generate pixel differences. And that’s just static content. The actual content can vary between any two interfaces. As a result, a tool that expects exact pixel matches between two images can be filled with pixel differences.</p>
-<p><img src="https://cloud-4czspr5oj-hack-club-bot.vercel.app/0image.png" alt="False positive due to browser specific rendering"></p>
+<p><img alt="False positive due to browser specific rendering" loading="lazy" src="https://cloud-4czspr5oj-hack-club-bot.vercel.app/0image.png"></p>
 <p align = "center">
 False positive due to browser specific rendering
 </p>
-<h3 id="solution">Solution</h3>
+<h3 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h3>
 <p>And to our rescue we have <strong>AI for visual regression testing</strong>. And unlike pixel by pixel comparison, AI-powered automated visual testing tools do not need special environments that remain static to ensure accuracy, and hence have a high degree of accuracy even with dynamic content because the comparisons are based on relationships and not simply pixels.</p>
 <p>The two AI powered visual regression testing tools that I benchmarked were:</p>
 <ol>
@@ -170,40 +280,113 @@ False positive due to browser specific rendering
 <p>Both the tools are really good and check all the right boxes, because of which deciding between the two wasn&rsquo;t easy. Applitools-Eyes came off to me as more feature rich, like having different match levels, etc. and Percy definetly had better UI and amazing documentation.
 In the end I chose Applitools-Eyes for the ceph dashboard, as it had some features like RCA (root cause analysis), that was just too good for me to give up.</p>
 <p>Currently for ceph dashboard, we&rsquo;re on Applitools&rsquo;s open source plan, which allows up to 10,000 checkpoint screenshots. For more details on the open source plan, visit <a href="https://applitools.com/open-source-terms-of-use/">here</a>.</p>
-<h3 id="what-visual-testing-is-not">What Visual Testing Is Not</h3>
+<h3 id="what-visual-testing-is-not">What Visual Testing Is Not<a hidden class="anchor" aria-hidden="true" href="#what-visual-testing-is-not">#</a></h3>
 <p>So on a closing note, let&rsquo;s talk about what visual testing is NOT:</p>
 <ul>
 <li>Does not verify logic or functionality</li>
 <li>Can’t replace Functional Tests</li>
 <li>Not a typical fully automated test suite.</li>
 </ul>
-<h3 id="links">Links</h3>
+<h3 id="links">Links<a hidden class="anchor" aria-hidden="true" href="#links">#</a></h3>
 <ul>
 <li><a href="https://docs.ceph.com/en/latest/dev/developer_guide/dash-devel/#visual-regression-testing">Documentation</a></li>
 <li><a href="https://tracker.ceph.com/issues/47497">Issue tracker</a></li>
 <li><a href="https://applitools.com/tutorials/cypress.html#getting-started-with-applitools">Applitools Cypress tutorial</a></li>
 <li><a href="https://github.com/ceph/ceph/pulls?q=is%3Apr+is%3Aclosed+author%3Aaaryanporwal">Link to all my PRs</a></li>
 </ul>
-<h3 id="to-conclude">To Conclude</h3>
+<h3 id="to-conclude">To Conclude<a hidden class="anchor" aria-hidden="true" href="#to-conclude">#</a></h3>
 <p>It has been an amazing summer getting to work on such an important project with guidance from my always-helpful mentors Ernesto, Alfonso and the dashboard team. I was able to present and demo the project in Ceph Developer Monthly (CDM) on 31st August. It was a summer filled with learning, and I am very excited to continue contributing to Ceph post-GSoC.</p>
 <p>You can always reach out to me on my email me at: <a href="mailto:aaryanporwal2233@gmail.com">aaryanporwal2233@gmail.com</a>.</p>
 <p>Thanks for reading 👋 !</p>
 
-  </section>
-</article>
-
-</main>
-
-</div>
-
-<footer>
-  <div class="container">
-    <span class="copyright">&copy;  2022 Aaryan&#39;s 📖 - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
 
   </div>
-  <span class="gopher" title="Wheeeee!"></span>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="//localhost:1313/tags/ceph/">Ceph</a></li>
+      <li><a href="//localhost:1313/tags/dashboard/">Dashboard</a></li>
+      <li><a href="//localhost:1313/tags/testing/">Testing</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="//localhost:1313/">Aaryan&#39;s 📖</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
-</html>
 
+</html>

@@ -1,67 +1,165 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-<meta charset="utf-8">
-<meta name="description" content="Aaryan Porwal&#39;s blog where he occassionally writes about tech and his journey in Open Source Software.">
-<meta name="generator" content="Hugo 0.92.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/style.css" type="text/css">
-<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Aaryan&#39;s 📖">
-<title>No Collision Guarantee</title>
+<html lang="en" dir="auto" data-theme="auto">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>No Collision Guarantee | Aaryan&#39;s 📖</title>
+<meta name="keywords" content="Problem-Solving, System-Design">
+<meta name="description" content="Designing No Collision Guarantee System.
+So for the past few days, I&rsquo;ve been trying to build a distributed highly scalable, no collision guaranteed URL shortening service.
+The Architecture
+So if you pass in a long url called https://longurl.com, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: https://shorturl.com/[slug].
+The slug is our main component, it should always be unique.">
+<meta name="author" content="">
+<link rel="canonical" href="//localhost:1313/posts/no-collision-guaranteed/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="//localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="//localhost:1313/posts/no-collision-guaranteed/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<script async defer data-website-id="27c08b6f-fe28-4852-918c-645925d65e75" src="https://umami-railway-starter-production.up.railway.app/umami.js"></script>
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
 </head>
-<body>
-
-<header>
-  <div class="container clearfix">
-    
-    
-    [<a class="path home" href="/">Home</a>] &nbsp;
-    [<a class="path" target="_blank" href="https://scrapbook.hackclub.com/aaryan">Scrapbook</a>] &nbsp;
-    [<a class="path" rel="noopener" target="_blank" href="https://github.com/aaryanporwal">GitHub</a>] &nbsp;
-    [<a class="path" target="_blank" href="mailto:aaryanporwal2233@gmail.com">E-mail</a>] &nbsp;
-    <span class="caret">#_</span>
-    <div class="right">
-      
-    </div>
-  </div>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="//localhost:1313/" accesskey="h" title="Aaryan&#39;s 📖 (Alt + H)">Aaryan&#39;s 📖</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="//localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="//localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
-<div class="container">
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      No Collision Guarantee
+    </h1>
+    <div class="post-meta"><span title='2022-01-28 17:49:17 +0530 IST'>January 28, 2022</span>&nbsp;·&nbsp;<span>3 min</span>
 
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-<main role="main" class="article">
-  
-<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="meta">
+        <div class="inner"><ul>
+                <li>
+                    <a href="#designing-no-collision-guarantee-system" aria-label="Designing No Collision Guarantee System.">Designing No Collision Guarantee System.</a><ul>
+                        
+                <li>
+                    <a href="#the-architecture" aria-label="The Architecture">The Architecture</a></li>
+                <li>
+                    <a href="#what-choices-do-we-have-to-ensure-uniqueness-of-the-slug" aria-label="What choices do we have to ensure uniqueness of the slug?">What choices do we have to ensure uniqueness of the slug?</a></li></ul>
+                </li>
+                <li>
+                    <a href="#the-problem-with-counter" aria-label="The problem with counter">The problem with counter</a><ul>
+                        
+                <li>
+                    <a href="#problem-with-counter-synchronization" aria-label="Problem with counter synchronization">Problem with counter synchronization</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-    <span class="key">published on</span>
-    <span class="val"><time itemprop="datePublished" datetime="2022-01-28">January 28, 2022</time></span>
-
-
-
-    <br>
-    <span class="key">tags:</span>
-    <span class="val">
-
-        <a href="/tags/problem-solving">Problem-Solving</a>
-
-        <a href="/tags/system-design">System-Design</a>
-
-    </span>
-
-  </div>
-  <h1 class="headline" itemprop="headline">No Collision Guarantee</h1>
-  <section class="body" itemprop="articleBody">
-    <h1 id="designing-no-collision-guarantee-system">Designing No Collision Guarantee System.</h1>
+  <div class="post-content"><h1 id="designing-no-collision-guarantee-system">Designing No Collision Guarantee System.<a hidden class="anchor" aria-hidden="true" href="#designing-no-collision-guarantee-system">#</a></h1>
 <p>So for the past few days, I&rsquo;ve been trying to build a <em>distributed highly scalable, no collision guaranteed URL shortening service</em>.</p>
-<h2 id="the-architecture">The Architecture</h2>
+<h2 id="the-architecture">The Architecture<a hidden class="anchor" aria-hidden="true" href="#the-architecture">#</a></h2>
 <p>So if you pass in a long url called <code>https://longurl.com</code>, the backend will send you a short url that would be unique to each request, and the structure of the url would look something like: <code>https://shorturl.com/[slug]</code>.</p>
 <p>The slug is our main component, it should always be unique.</p>
 <p>Some things to note:</p>
@@ -75,7 +173,7 @@
 <p>So, for 5 digit base62 -&gt; 62^5 ~about 900 million possibilities.</p>
 </li>
 </ul>
-<h2 id="what-choices-do-we-have-to-ensure-uniqueness-of-the-slug">What choices do we have to ensure uniqueness of the slug?</h2>
+<h2 id="what-choices-do-we-have-to-ensure-uniqueness-of-the-slug">What choices do we have to ensure uniqueness of the slug?<a hidden class="anchor" aria-hidden="true" href="#what-choices-do-we-have-to-ensure-uniqueness-of-the-slug">#</a></h2>
 <ul>
 <li>
 <p>Random slug</p>
@@ -95,7 +193,7 @@
 <p>UUIDs</p>
 <p>-&gt; UUID is part of the Distributed Computing Environment (DCE), standardized by the Open Software Foundation (OSF).</p>
 <p>-&gt; How UUID is made:
-<img src="https://i.stack.imgur.com/goiPw.png" alt="UUID architecture"></p>
+<img alt="UUID architecture" loading="lazy" src="https://i.stack.imgur.com/goiPw.png"></p>
 <p>-&gt; Also check out this amazing blog about collisions in UUIDs <a href="https://www.scaleyourapp.com/uuid-guid-oversimplified-are-they-really-unique/">here</a>.</p>
 </li>
 <li>
@@ -103,7 +201,7 @@
 <p>-&gt; Counters are the only thing that can <strong>guarantee</strong> no collisions. This is true if we only use a single database, which is bad for scaling. For multiple distributed database, we again have a problem!</p>
 </li>
 </ul>
-<h1 id="the-problem-with-counter">The problem with counter</h1>
+<h1 id="the-problem-with-counter">The problem with counter<a hidden class="anchor" aria-hidden="true" href="#the-problem-with-counter">#</a></h1>
 <p>For a no collision guarantee URL shortening system (single database), our unique id i.e our slug will be a counter.</p>
 <p>For example:</p>
 <ul>
@@ -123,7 +221,7 @@
 <p>-&gt; This approach will be faster, but the problem is how will we ensure that there are no collisions between two different counters?</p>
 </li>
 </ul>
-<h2 id="problem-with-counter-synchronization">Problem with counter synchronization</h2>
+<h2 id="problem-with-counter-synchronization">Problem with counter synchronization<a hidden class="anchor" aria-hidden="true" href="#problem-with-counter-synchronization">#</a></h2>
 <p>The problem with counter synchronization is that there can be two counters with same value.</p>
 <p>Here comes our <a href="https://zookeeper.apache.org/">Apache zookeeper</a>.</p>
 <p>What zookeeper would do is assign different counter ranges to different databases or servers.</p>
@@ -138,21 +236,93 @@
 <p>In conclusion, for our distributed no collision guaranteed url shortening service, we can use counters to guarantee no collisions and use apache zookeeper to synchronize the counters across databases.</p>
 <p>P.S this article is still in development&hellip;</p>
 
-  </section>
-</article>
-
-</main>
-
-</div>
-
-<footer>
-  <div class="container">
-    <span class="copyright">&copy;  2022 Aaryan&#39;s 📖 - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
 
   </div>
-  <span class="gopher" title="Wheeeee!"></span>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="//localhost:1313/tags/problem-solving/">Problem-Solving</a></li>
+      <li><a href="//localhost:1313/tags/system-design/">System-Design</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="//localhost:1313/">Aaryan&#39;s 📖</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
-</html>
 
+</html>

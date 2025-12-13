@@ -1,83 +1,124 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Aaryan&#39;s 📖</title>
-    <link>/tags/</link>
+    <link>//localhost:1313/tags/</link>
     <description>Recent content in Tags on Aaryan&#39;s 📖</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jan 2022 17:49:17 +0530</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Dec 2025 17:30:40 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Frontend</title>
+      <link>//localhost:1313/tags/frontend/</link>
+      <pubDate>Sat, 13 Dec 2025 17:30:40 +0530</pubDate>
+      <guid>//localhost:1313/tags/frontend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Javascript</title>
+      <link>//localhost:1313/tags/javascript/</link>
+      <pubDate>Sat, 13 Dec 2025 17:30:40 +0530</pubDate>
+      <guid>//localhost:1313/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>React</title>
+      <link>//localhost:1313/tags/react/</link>
+      <pubDate>Sat, 13 Dec 2025 17:30:40 +0530</pubDate>
+      <guid>//localhost:1313/tags/react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Weird-Js</title>
+      <link>//localhost:1313/tags/weird-js/</link>
+      <pubDate>Thu, 01 Dec 2022 21:18:47 +0530</pubDate>
+      <guid>//localhost:1313/tags/weird-js/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Problem-Solving</title>
-      <link>/tags/problem-solving/</link>
+      <link>//localhost:1313/tags/problem-solving/</link>
       <pubDate>Fri, 28 Jan 2022 17:49:17 +0530</pubDate>
-      
-      <guid>/tags/problem-solving/</guid>
+      <guid>//localhost:1313/tags/problem-solving/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>System-Design</title>
-      <link>/tags/system-design/</link>
+      <link>//localhost:1313/tags/system-design/</link>
       <pubDate>Fri, 28 Jan 2022 17:49:17 +0530</pubDate>
-      
-      <guid>/tags/system-design/</guid>
+      <guid>//localhost:1313/tags/system-design/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ceph</title>
-      <link>/tags/ceph/</link>
+      <title>Build Time</title>
+      <link>//localhost:1313/tags/build-time/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/tags/build-time/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>General</title>
+      <link>//localhost:1313/tags/general/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/tags/general/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JIT</title>
+      <link>//localhost:1313/tags/jit/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/tags/jit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Just in Time</title>
+      <link>//localhost:1313/tags/just-in-time/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/tags/just-in-time/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>//localhost:1313/tags/programming/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/tags/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Run Time</title>
+      <link>//localhost:1313/tags/run-time/</link>
+      <pubDate>Sat, 02 Oct 2021 17:18:54 +0530</pubDate>
+      <guid>//localhost:1313/tags/run-time/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ceph</title>
+      <link>//localhost:1313/tags/ceph/</link>
       <pubDate>Wed, 01 Sep 2021 17:10:16 +0530</pubDate>
-      
-      <guid>/tags/ceph/</guid>
+      <guid>//localhost:1313/tags/ceph/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>dashboard</title>
-      <link>/tags/dashboard/</link>
+      <title>Dashboard</title>
+      <link>//localhost:1313/tags/dashboard/</link>
       <pubDate>Wed, 01 Sep 2021 17:10:16 +0530</pubDate>
-      
-      <guid>/tags/dashboard/</guid>
+      <guid>//localhost:1313/tags/dashboard/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>testing</title>
-      <link>/tags/testing/</link>
+      <title>Testing</title>
+      <link>//localhost:1313/tags/testing/</link>
       <pubDate>Wed, 01 Sep 2021 17:10:16 +0530</pubDate>
-      
-      <guid>/tags/testing/</guid>
+      <guid>//localhost:1313/tags/testing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>javascript</title>
-      <link>/tags/javascript/</link>
+      <title>Nodejs</title>
+      <link>//localhost:1313/tags/nodejs/</link>
       <pubDate>Fri, 25 Jun 2021 04:57:26 +0530</pubDate>
-      
-      <guid>/tags/javascript/</guid>
+      <guid>//localhost:1313/tags/nodejs/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>nodejs</title>
-      <link>/tags/nodejs/</link>
-      <pubDate>Fri, 25 Jun 2021 04:57:26 +0530</pubDate>
-      
-      <guid>/tags/nodejs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>weird-js</title>
-      <link>/tags/weird-js/</link>
-      <pubDate>Fri, 25 Jun 2021 04:57:26 +0530</pubDate>
-      
-      <guid>/tags/weird-js/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>testing on Aaryan&#39;s 📖</title>
-    <link>/tags/testing/</link>
-    <description>Recent content in testing on Aaryan&#39;s 📖</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Testing on Aaryan&#39;s 📖</title>
+    <link>//localhost:1313/tags/testing/</link>
+    <description>Recent content in Testing on Aaryan&#39;s 📖</description>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Sep 2021 17:10:16 +0530</lastBuildDate><atom:link href="/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Sep 2021 17:10:16 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Visual Regression Testing of Ceph Dashboard</title>
-      <link>/posts/gsoc_with_ceph/</link>
+      <link>//localhost:1313/posts/gsoc_with_ceph/</link>
       <pubDate>Wed, 01 Sep 2021 17:10:16 +0530</pubDate>
-      
-      <guid>/posts/gsoc_with_ceph/</guid>
-      <description>This summer I worked with The Ceph Foundation under Google Summer Of Code &amp;lsquo;21 (GSoC) programme.
-Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.
-In this blog, I&amp;rsquo;ll share my journey of completing the project &amp;ldquo;Visual Regression Testing of Ceph Dashboard&amp;rdquo;.</description>
+      <guid>//localhost:1313/posts/gsoc_with_ceph/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Gsoc with Ceph Image&#34; loading=&#34;lazy&#34; src=&#34;https://cloud-n3ex22j44-hack-club-bot.vercel.app/0gsocxjodc.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This summer I worked with The Ceph Foundation under &lt;a href=&#34;https://summerofcode.withgoogle.com/how-it-works/&#34;&gt;Google Summer Of Code &amp;lsquo;21&lt;/a&gt; (GSoC) programme.&lt;/p&gt;
+&lt;p&gt;Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 10 week programming project during their break from school.&lt;/p&gt;
+&lt;p&gt;In this blog, I&amp;rsquo;ll share my journey of completing the project &amp;ldquo;Visual Regression Testing of Ceph Dashboard&amp;rdquo;.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

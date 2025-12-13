@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>React on Aaryan&#39;s 📖</title>
+    <link>//localhost:1313/tags/react/</link>
+    <description>Recent content in React on Aaryan&#39;s 📖</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 Dec 2025 17:30:40 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thinking in React</title>
+      <link>//localhost:1313/posts/thinking-in-react/</link>
+      <pubDate>Sat, 13 Dec 2025 17:30:40 +0530</pubDate>
+      <guid>//localhost:1313/posts/thinking-in-react/</guid>
+      <description>&lt;p&gt;How does React re-rendering work and when does react re-render a component? Let&amp;rsquo;s dive into it with some fun examples!&lt;/p&gt;
+&lt;h2 id=&#34;react-re-rendering&#34;&gt;React re-rendering&lt;/h2&gt;
+&lt;p&gt;React re-renders a component when either of the following happens:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The component&amp;rsquo;s props change.&lt;/li&gt;
+&lt;li&gt;The component&amp;rsquo;s state changes.&lt;/li&gt;
+&lt;li&gt;The component&amp;rsquo;s parent component re-renders.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The key thing to note here is that React does a &lt;u&gt;&lt;strong&gt;shallow&lt;/strong&gt;&lt;/u&gt; comparison of props, so passing a new object or function reference triggers a re-render even if the values inside are &lt;strong&gt;identical&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -110,7 +110,7 @@ body {
 }
 
 .container {
-  max-width: 100rem;
+  max-width: 65rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -532,10 +532,18 @@ article.single * {
 
 article.single pre {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   overflow-x: scroll;
-  border-radius: 3px;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+article.single pre::-webkit-scrollbar {
+  display: none;
+}
+
+article.single {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 article.single p code {

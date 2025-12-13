@@ -2,54 +2,89 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2025-12-13T17:30:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/frontend/</loc>
+    <lastmod>2025-12-13T17:30:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/javascript/</loc>
+    <lastmod>2025-12-13T17:30:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2025-12-13T17:30:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/react/</loc>
+    <lastmod>2025-12-13T17:30:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/thinking-in-react/</loc>
+    <lastmod>2025-12-13T17:30:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
+    <lastmod>2025-12-13T17:30:40+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/weird-js/</loc>
+    <lastmod>2022-12-01T21:18:47+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/js-sort-function/</loc>
+    <lastmod>2022-12-01T21:18:47+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/no-collision-guaranteed/</loc>
     <lastmod>2022-01-28T17:49:17+05:30</lastmod>
   </url><url>
-    <loc>/posts/no-collision-guaranteed/</loc>
+    <loc>//localhost:1313/tags/problem-solving/</loc>
     <lastmod>2022-01-28T17:49:17+05:30</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>//localhost:1313/tags/system-design/</loc>
     <lastmod>2022-01-28T17:49:17+05:30</lastmod>
   </url><url>
-    <loc>/tags/problem-solving/</loc>
-    <lastmod>2022-01-28T17:49:17+05:30</lastmod>
+    <loc>//localhost:1313/tags/build-time/</loc>
+    <lastmod>2021-10-02T17:18:54+05:30</lastmod>
   </url><url>
-    <loc>/tags/system-design/</loc>
-    <lastmod>2022-01-28T17:49:17+05:30</lastmod>
+    <loc>//localhost:1313/tags/general/</loc>
+    <lastmod>2021-10-02T17:18:54+05:30</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-01-28T17:49:17+05:30</lastmod>
+    <loc>//localhost:1313/tags/jit/</loc>
+    <lastmod>2021-10-02T17:18:54+05:30</lastmod>
   </url><url>
-    <loc>/tags/ceph/</loc>
+    <loc>//localhost:1313/tags/just-in-time/</loc>
+    <lastmod>2021-10-02T17:18:54+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/programming/</loc>
+    <lastmod>2021-10-02T17:18:54+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/run-time/</loc>
+    <lastmod>2021-10-02T17:18:54+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/posts/runtime_vs_compiletime/</loc>
+    <lastmod>2021-10-02T17:18:54+05:30</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/ceph/</loc>
     <lastmod>2021-09-01T17:10:16+05:30</lastmod>
   </url><url>
-    <loc>/tags/dashboard/</loc>
+    <loc>//localhost:1313/tags/dashboard/</loc>
     <lastmod>2021-09-01T17:10:16+05:30</lastmod>
   </url><url>
-    <loc>/tags/testing/</loc>
+    <loc>//localhost:1313/tags/testing/</loc>
     <lastmod>2021-09-01T17:10:16+05:30</lastmod>
   </url><url>
-    <loc>/posts/gsoc_with_ceph/</loc>
+    <loc>//localhost:1313/posts/gsoc_with_ceph/</loc>
     <lastmod>2021-09-01T17:10:16+05:30</lastmod>
   </url><url>
-    <loc>/tags/javascript/</loc>
+    <loc>//localhost:1313/tags/nodejs/</loc>
     <lastmod>2021-06-25T04:57:26+05:30</lastmod>
   </url><url>
-    <loc>/tags/nodejs/</loc>
+    <loc>//localhost:1313/posts/type-coercion-javascript/</loc>
     <lastmod>2021-06-25T04:57:26+05:30</lastmod>
   </url><url>
-    <loc>/posts/type-coercion-javascript/</loc>
-    <lastmod>2021-06-25T04:57:26+05:30</lastmod>
-  </url><url>
-    <loc>/tags/weird-js/</loc>
-    <lastmod>2021-06-25T04:57:26+05:30</lastmod>
-  </url><url>
-    <loc>/posts/scaling-your-node.js-app-like-a-boss/</loc>
+    <loc>//localhost:1313/posts/scaling-your-node.js-app-like-a-boss/</loc>
     <lastmod>2021-05-05T19:12:41+05:30</lastmod>
   </url><url>
-    <loc>/posts/my-first-post/</loc>
+    <loc>//localhost:1313/posts/my-first-post/</loc>
     <lastmod>2021-04-27T17:10:16+05:30</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>//localhost:1313/categories/</loc>
+  </url><url>
+    <loc>//localhost:1313/search/</loc>
   </url>
 </urlset>

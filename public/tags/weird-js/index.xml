@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>weird-js on Aaryan&#39;s 📖</title>
-    <link>/tags/weird-js/</link>
-    <description>Recent content in weird-js on Aaryan&#39;s 📖</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Weird-Js on Aaryan&#39;s 📖</title>
+    <link>//localhost:1313/tags/weird-js/</link>
+    <description>Recent content in Weird-Js on Aaryan&#39;s 📖</description>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Jun 2021 04:57:26 +0530</lastBuildDate><atom:link href="/tags/weird-js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 21:18:47 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/weird-js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What&#39;s wrong with JavaScript sort() function</title>
+      <link>//localhost:1313/posts/js-sort-function/</link>
+      <pubDate>Thu, 01 Dec 2022 21:18:47 +0530</pubDate>
+      <guid>//localhost:1313/posts/js-sort-function/</guid>
+      <description>&lt;p&gt;This year I decided to solve the famous Advent of Code Challenge in both Python and &lt;em&gt;JavaScript&lt;/em&gt;.
+I&amp;rsquo;m also gonna be posting my solutions on my &lt;a href=&#34;https://github.com/aaryanporwal/advent_of_code_2022&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And while solving today&amp;rsquo;s &lt;a href=&#34;https://adventofcode.com/2022/day/1&#34;&gt;advent of code challenge&lt;/a&gt;, in javascript. I came across a weird behaviour of the &lt;code&gt;sort()&lt;/code&gt; function in javascript.
+I was trying to sort an array of numbers, and I was using the sort function like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;myArray&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;myArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;then I console.log()ed it to see the result, and it was sorted in ascending order. But when I tried to sort it in descending order, it didn&amp;rsquo;t work. I tried to do this:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Type Coercion In JavaScript</title>
-      <link>/posts/type-coercion-javascript/</link>
+      <link>//localhost:1313/posts/type-coercion-javascript/</link>
       <pubDate>Fri, 25 Jun 2021 04:57:26 +0530</pubDate>
-      
-      <guid>/posts/type-coercion-javascript/</guid>
-      <description>This small blog was sparked by a post that I saw: There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&amp;rsquo;m gonna try to explain what type coercion is and what&amp;rsquo;s happening in that post 😉.
-What is type coercion? There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol.</description>
+      <guid>//localhost:1313/posts/type-coercion-javascript/</guid>
+      <description>&lt;p&gt;This small blog was sparked by a post that I saw: &lt;img alt=&#34;Weird JavaScript&#34; loading=&#34;lazy&#34; src=&#34;https://i.imgur.com/5JbayVc.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There are many posts like the above on the internet, and almost all of them are because of this type coercion thingy. So in this blog, I&amp;rsquo;m gonna try to explain what type coercion is and what&amp;rsquo;s happening in that post 😉.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-type-coercion&#34;&gt;What is type coercion?&lt;/h1&gt;
+&lt;p&gt;There are 6 primitive data types in JavaScript: undefined, Boolean, Number, String, BigInt and Symbol. When you try to do things like adding two different data types together, JavaScript uses some rules to decide how it&amp;rsquo;s gonna coerce one type into the other type, to actually add them together.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,17 +1,74 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Aaryan's 📖"
-theme = "base16"
+theme = "PaperMod"
 description = "Aaryan Porwal's blog where he occassionally writes about tech, life and his journey in Open Source Software."
 
-[author]
-  name = "Aaryan Porwal"
+[outputs]
+  home = [ "HTML", "RSS", "JSON" ]
+
 
 [params]
-description = "Aaryan Porwal's blog where he occassionally writes about tech, life and his journey in Open Source Software."
+  defaultTheme = "auto"
+  showReadingTime = true
+  showToc = true
+  comments = true
+
+[params.homeInfoParams]
+Title = "Hey, I’m Aaryan 👋"
+Content = "Welcome to my little corner of the web — where I write about building software, tinkering with front-end performance, exploring Open Source, and sometimes, my travels around the world. Grab a cup of coffee and dive in ☕"
+
+[[params.socialIcons]]
+name = "GitHub"
+url = "https://github.com/aaryanporwal"
+
+[[params.socialIcons]]
+name = "x"
+url = "https://x.com/aaryan7476"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://linkedin.com/in/aaryan-porwal"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:aaryanporwal2233@gmail.com"
+
+
+
+[[menu.main]]
+identifier = "search"
+name = "Search"
+url = "/search/"
+weight = 10
+
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = 20
+
+
+
+[fuseOpts]
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1_000
+threshold = 0.4
+minMatchCharLength = 0
+limit = 10
+keys = [ "title", "permalink", "summary", "content" ]
+
+
 
 [markup]
-    [markup.goldmark]
-        [markup.goldmark.renderer]
-            unsafe = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
+  [markup.highlight]
+    noClasses = false      # let PaperMod use its CSS classes
+    guessSyntax = true
+    lineNos = false
+    style = "monokai"      # try "monokai", "dracula", "github", etc.
