@@ -1,0 +1,25 @@
+# Hugo build output
+/public/
+
+# Local build caches
+/resources/
+hugo_stats.json
+
+# Log files
+*.log
+
+# OS-specific cruft
+.DS_Store
+Thumbs.db
+
+# IDE/editor stuff
+.vscode/
+.idea/
+*.swp
+
+# Node-related (only if you ever use npm/yarn for theme assets)
+/node_modules/
+
+# Optional: ignore local environment files
+.env
+.env.*
