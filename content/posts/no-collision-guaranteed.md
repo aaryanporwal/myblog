@@ -1,5 +1,5 @@
 ---
-title: "No Collision Guarantee"
+title: "No Collision Guarantee 🔒"
 date: 2022-01-28T17:49:17+05:30
 draft: false
 tags:

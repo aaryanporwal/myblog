@@ -1,5 +1,5 @@
 ---
-title: "Type Coercion In JavaScript"
+title: "Type Coercion In JavaScript 🍭"
 date: 2021-06-25T04:57:26+05:30
 draft: false
 tags:

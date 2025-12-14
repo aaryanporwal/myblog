@@ -1,5 +1,5 @@
 ---
-title: "React Re-rendering: Stop the Madness 🎯"
+title: "React re-renders: Stop the Madness 🎯"
 date: 2025-11-04T17:30:40+05:30
 draft: false
 tags:

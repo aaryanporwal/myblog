@@ -1,5 +1,5 @@
 ---
-title: "What's wrong with JavaScript sort() function"
+title: "What's Wrong with JavaScript sort() Function 🤔"
 date: 2022-12-01T21:18:47+05:30
 draft: false
 tags:
