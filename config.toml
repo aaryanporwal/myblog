@@ -18,7 +18,7 @@ description = "Aaryan Porwal's blog where he occassionally writes about tech, li
 
 [params.homeInfoParams]
 Title = "Hey, I’m Aaryan 👋"
-Content = "Welcome to my little corner of the web — where I write about building software, tinkering with front-end performance, exploring Open Source, and sometimes, my travels around the world. Grab a cup of coffee and dive in ☕"
+Content = "Welcome to my little corner of the web, where I write about building software, tinkering with front-end performance, exploring Open Source, and sometimes, my travels around the world. Grab a cup of coffee and dive in ☕️"
 
 [[params.socialIcons]]
 name = "GitHub"
